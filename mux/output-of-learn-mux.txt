@@ -1,0 +1,16 @@
+0 anand@GS-5619 /work/golang-induction/mux  >curl localhost:8080/usermapper/11066                                             
+[]
+0 anand@GS-5619 /work/golang-induction/mux  >curl -X POST localhost:8080/usermapper -H 'Content-Type: application/json' \
+-d '{"name":"Chintan Desai","user_name":"gamer"}'
+{"id":"11066","name":"Chintan Desai","user_name":"gamer"}
+0 anand@GS-5619 /work/golang-induction/mux  >curl localhost:8080/usermapper/11066                                        
+[{"id":"11066","name":"Chintan Desai","user_name":"gamer"}]
+0 anand@GS-5619 /work/golang-induction/mux  >curl -X PUT localhost:8080/usermapper/11066 -H 'Content-Type: application/json' \
+-d '{"name":"Chintan Desai","user_name":"Chintu"}'
+{"ResCode":0,"Message":"Successful"}
+0 anand@GS-5619 /work/golang-induction/mux  >curl localhost:8080/usermapper/11066                                             
+[{"id":"48084","name":"Chintan Desai","user_name":"Chintu"}]
+0 anand@GS-5619 /work/golang-induction/mux  >curl localhost:8080/usermapper/     
+404 page not found
+0 anand@GS-5619 /work/golang-induction/mux  >curl localhost:8080/usermapper 
+[{"id":"48084","name":"Chintan Desai","user_name":"Chintu"}]

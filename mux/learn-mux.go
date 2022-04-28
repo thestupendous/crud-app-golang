@@ -67,15 +67,15 @@ func deleteUname(writer http.ResponseWriter, request *http.Request) {
 		}
 	}
 	returnMsg := struct {
-		resCode int
-		message string
+		ResCode int
+		Message string
 	}{0, ""}
 	if found {
-		returnMsg.resCode = 0
-		returnMsg.message = "Successful"
+		returnMsg.ResCode = 0
+		returnMsg.Message = "Successful"
 	} else {
-		returnMsg.resCode = 1
-		returnMsg.message = "Unsuccessful!!"
+		returnMsg.ResCode = 1
+		returnMsg.Message = "Unsuccessful!!"
 	}
 	fmt.Printf("On Deletions> type : %T : %+v\n", returnMsg, returnMsg)
 
@@ -108,15 +108,15 @@ func updateUname(writer http.ResponseWriter, request *http.Request) {
 		}
 	}
 	returnMsg := struct {
-		resCode int
-		message string
+		ResCode int
+		Message string
 	}{0, ""}
 	if found {
-		returnMsg.resCode = 0
-		returnMsg.message = "Successful"
+		returnMsg.ResCode = 0
+		returnMsg.Message = "Successful"
 	} else {
-		returnMsg.resCode = 1
-		returnMsg.message = "Unsuccessful!!"
+		returnMsg.ResCode = 1
+		returnMsg.Message = "Unsuccessful!!"
 	}
 	fmt.Printf("update> type : %T : %+v\n", returnMsg, returnMsg)
 	json.NewEncoder(writer).Encode(returnMsg)
@@ -129,11 +129,11 @@ func main() {
 	router := mux.NewRouter()
 
 	//router handlers
-	router.HandleFunc("/books", getUnames).Methods("GET")
-	router.HandleFunc("/books/{id}", getUnames).Methods("GET")
-	router.HandleFunc("/books", createUname).Methods("POST")
-	router.HandleFunc("/books/{id}", updateUname).Methods("PUT")
-	router.HandleFunc("/books/{id}", deleteUname).Methods("DELETE")
+	router.HandleFunc("/usermapper", getUnames).Methods("GET")
+	router.HandleFunc("/usermapper/{id}", getUnames).Methods("GET")
+	router.HandleFunc("/usermapper", createUname).Methods("POST")
+	router.HandleFunc("/usermapper/{id}", updateUname).Methods("PUT")
+	router.HandleFunc("/usermapper/{id}", deleteUname).Methods("DELETE")
 
 	http.ListenAndServe(":8080", router)
 
