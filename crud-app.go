@@ -172,7 +172,7 @@ func main() {
 	router.HandleFunc("/usermapper", getUnames).Methods("GET")
 	router.HandleFunc("/usermapper/{id}", getUname).Methods("GET")
 	router.HandleFunc("/usermapper", createUname).Methods("POST")
-	//	router.HandleFunc("/usermapper/{id}", updateUname).Methods("PUT")
+	router.HandleFunc("/usermapper/{id}", updateUname).Methods("PUT")
 	router.HandleFunc("/usermapper/{id}", deleteUname).Methods("DELETE")
 
 	http.ListenAndServe(":8080", router)
@@ -198,19 +198,23 @@ func getUnamesDB() interface{} {
 
 	}
 
+	//	var resultStruct GamerUname
 	for cursor.Next(ctx) {
 		var result bson.D
 		if err := cursor.Decode(&result); err != nil {
 			log.Println("error in cursor decoding : ", err)
 		}
+		//convert bson result field to struct
+		//		bytes, err := json.Marshal(result)
 		results = append(results, result)
 	}
 
 	//converting []bson.D data to string
-	bytes, err := json.Marshal(results)
+	bytes, err := json.MarshalIndent(results, "", "  ")
 	if err != nil {
 		fmt.Println("error in marshaling to string : ", err)
 	}
+	// log.Println("printing all bytes : ", bytes)
 
 	//converting string to list of structs
 	var resultStructs interface{}
@@ -218,6 +222,7 @@ func getUnamesDB() interface{} {
 	if err != nil {
 		fmt.Println("error in unmarshalling to struct slice : ", err)
 	}
+	// log.Println(resultStructs)
 
 	//	resultJson, err = json.Marshal(results)
 	return resultStructs
@@ -238,7 +243,7 @@ func initMongoConnection() {
 	if err != nil {
 		log.Println("error in pinging the connection : ", err)
 	} else {
-		log.Println("no error in pinging the connection to mongodb")
+		log.Println("NO error in pinging the connection to mongodb")
 	}
 
 	db := client.Database("golang_project")
@@ -277,17 +282,19 @@ func deleteUnameDB(requestedID string) (string, error) {
 
 }
 
+// updatUnameDB function updates a document by replacing its complete
+// body, and applying a filter by id
 func updateUnameDB(requestedID string, username GamerUname) (string, error) {
 	log.Println("in updateDB :")
 	filter := bson.D{{"_id", requestedID}}
 	update := username
 
-	err := coll.UpdateOne(ctx, filter, update)
+	updatedDoc, err := coll.UpdateOne(ctx, filter, update)
 	if err != nil {
 		log.Println("error in update call to mongodb : ", err)
 	}
 
-	resString := fmt.Sprintf("%v", deletedDoc)
+	resString := fmt.Sprintf("%v", updatedDoc)
 	return resString, err
 
 }

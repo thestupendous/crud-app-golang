@@ -163,3 +163,50 @@ created by net/http.(*Server).Serve
 2022/04/29 15:55:44 On Deletions> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successful, deleted one record}
 2022/04/29 15:55:50 in getAll:
 2022/04/29 15:55:50 in getAll DB: 
+2022/05/01 13:32:03 no error in pinging the connection to mongodb
+2022/05/01 13:34:03 in getAll:
+2022/05/01 13:34:03 in getAll DB: 
+2022/05/01 13:48:37 in Create:
+2022/05/01 13:48:37 in createDB:
+2022/05/01 13:48:37 create> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successfully added record to db}
+2022/05/01 13:50:05 in getAll:
+2022/05/01 13:50:05 in getAll DB: 
+2022/05/01 13:56:08 in getAll:
+2022/05/01 13:56:08 in getAll DB: 
+2022/05/01 13:56:31 in getAll:
+2022/05/01 13:56:31 in getAll DB: 
+2022/05/01 13:58:56 in Create:
+2022/05/01 13:58:56 in createDB:
+2022/05/01 13:58:56 create> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successfully added record to db}
+2022/05/01 13:59:02 in getAll:
+2022/05/01 13:59:02 in getAll DB: 
+2022/05/01 14:07:48 no error in pinging the connection to mongodb
+2022/05/01 14:08:20 no error in pinging the connection to mongodb
+2022/05/01 14:09:25 NO error in pinging the connection to mongodb
+2022/05/01 14:09:35 in getAll:
+2022/05/01 14:09:35 in getAll DB: 
+2022/05/01 14:14:27 NO error in pinging the connection to mongodb
+2022/05/01 14:14:34 in getAll:
+2022/05/01 14:14:34 in getAll DB: 
+2022/05/01 14:28:58 NO error in pinging the connection to mongodb
+2022/05/01 14:29:02 in getAll:
+2022/05/01 14:29:02 in getAll DB: 
+2022/05/01 14:29:14 in getAll:
+2022/05/01 14:29:14 in getAll DB: 
+2022/05/01 14:30:53 NO error in pinging the connection to mongodb
+2022/05/01 14:30:55 in getAll:
+2022/05/01 14:30:55 in getAll DB: 
+2022/05/01 14:32:54 in getAll:
+2022/05/01 14:32:54 in getAll DB: 
+2022/05/01 14:33:00 NO error in pinging the connection to mongodb
+2022/05/01 14:33:03 in getAll:
+2022/05/01 14:33:03 in getAll DB: 
+2022/05/01 14:33:03 <nil>
+2022/05/01 14:34:54 NO error in pinging the connection to mongodb
+2022/05/01 14:34:59 in getAll:
+2022/05/01 14:34:59 in getAll DB: 
+2022/05/01 14:34:59 printing all bytes :  [110 117 108 108]
+2022/05/01 14:34:59 <nil>
+2022/05/01 14:36:28 NO error in pinging the connection to mongodb
+2022/05/01 14:36:30 in getAll:
+2022/05/01 14:36:30 in getAll DB: 
