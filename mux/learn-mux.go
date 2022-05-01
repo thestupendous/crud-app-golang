@@ -51,7 +51,12 @@ func createUname(writer http.ResponseWriter, request *http.Request) {
 	_ = json.NewDecoder(request.Body).Decode(&username)
 	username.ID = strconv.Itoa(rand.Intn(99999)) //TODO check for duplicates
 	usernames = append(usernames, username)
-	json.NewEncoder(writer).Encode(username)
+	returnMsg := struct {
+		ResCode int
+		Message string
+	}{0, "Successull, added a new record"}
+	fmt.Printf("create> type : %T : %+v\n", returnMsg, returnMsg)
+	json.NewEncoder(writer).Encode(returnMsg)
 }
 
 func deleteUname(writer http.ResponseWriter, request *http.Request) {
@@ -72,10 +77,10 @@ func deleteUname(writer http.ResponseWriter, request *http.Request) {
 	}{0, ""}
 	if found {
 		returnMsg.ResCode = 0
-		returnMsg.Message = "Successful"
+		returnMsg.Message = "Successful, deleted one record"
 	} else {
 		returnMsg.ResCode = 1
-		returnMsg.Message = "Unsuccessful!!"
+		returnMsg.Message = "Unsuccessful!! could not find the ID provided"
 	}
 	fmt.Printf("On Deletions> type : %T : %+v\n", returnMsg, returnMsg)
 
@@ -113,10 +118,10 @@ func updateUname(writer http.ResponseWriter, request *http.Request) {
 	}{0, ""}
 	if found {
 		returnMsg.ResCode = 0
-		returnMsg.Message = "Successful"
+		returnMsg.Message = "Successful, updated one record"
 	} else {
 		returnMsg.ResCode = 1
-		returnMsg.Message = "Unsuccessful!!"
+		returnMsg.Message = "Unsuccessful!! could not find the provide ID in records!"
 	}
 	fmt.Printf("update> type : %T : %+v\n", returnMsg, returnMsg)
 	json.NewEncoder(writer).Encode(returnMsg)

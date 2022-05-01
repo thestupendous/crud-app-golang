@@ -1,0 +1,165 @@
+2022/04/29 11:35:40 in get DB: 
+2022/04/29 11:35:40 http: panic serving 127.0.0.1:41152: runtime error: invalid memory address or nil pointer dereference
+goroutine 19 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1825 +0xbf
+panic({0x859600, 0xc88120})
+	/usr/local/go/src/runtime/panic.go:844 +0x258
+go.mongodb.org/mongo-driver/mongo.(*Collection).Find(0x0, {0xa0ca50?, 0xc000132028?}, {0x854f40?, 0xc0001262b8?}, {0x0, 0x0, 0x0})
+	/work/golang-induction/vendor/go.mongodb.org/mongo-driver/mongo/collection.go:1143 +0xb6
+main.getUnamesDB()
+	/work/golang-induction/crud-app.go:188 +0xae
+main.getUnames({0xa0c7d8, 0xc0002020e0}, 0xc0001fc450?)
+	/work/golang-induction/crud-app.go:43 +0xd4
+net/http.HandlerFunc.ServeHTTP(0xc000216100?, {0xa0c7d8?, 0xc0002020e0?}, 0x0?)
+	/usr/local/go/src/net/http/server.go:2084 +0x2f
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc0001f6000, {0xa0c7d8, 0xc0002020e0}, 0xc000216000)
+	/work/golang-induction/vendor/github.com/gorilla/mux/mux.go:210 +0x1cf
+net/http.serverHandler.ServeHTTP({0xc0001fc2a0?}, {0xa0c7d8, 0xc0002020e0}, 0xc000216000)
+	/usr/local/go/src/net/http/server.go:2916 +0x43b
+net/http.(*conn).serve(0xc000139720, {0xa0cac0, 0xc0001fc1b0})
+	/usr/local/go/src/net/http/server.go:1966 +0x5d7
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3071 +0x4db
+2022/04/29 11:43:45 in get DB: 
+2022/04/29 11:43:45 http: panic serving 127.0.0.1:41154: runtime error: invalid memory address or nil pointer dereference
+goroutine 6 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1825 +0xbf
+panic({0x859600, 0xc88120})
+	/usr/local/go/src/runtime/panic.go:844 +0x258
+go.mongodb.org/mongo-driver/mongo.(*Collection).Find(0x0, {0xa0ca50?, 0xc0000240f0?}, {0x854f40?, 0xc00000e2d0?}, {0x0, 0x0, 0x0})
+	/work/golang-induction/vendor/go.mongodb.org/mongo-driver/mongo/collection.go:1143 +0xb6
+main.getUnamesDB()
+	/work/golang-induction/crud-app.go:188 +0xae
+main.getUnames({0xa0c7d8, 0xc0001de0e0}, 0xc0001dc450?)
+	/work/golang-induction/crud-app.go:43 +0xd4
+net/http.HandlerFunc.ServeHTTP(0xc0001f4100?, {0xa0c7d8?, 0xc0001de0e0?}, 0x0?)
+	/usr/local/go/src/net/http/server.go:2084 +0x2f
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc0001d4000, {0xa0c7d8, 0xc0001de0e0}, 0xc0001f4000)
+	/work/golang-induction/vendor/github.com/gorilla/mux/mux.go:210 +0x1cf
+net/http.serverHandler.ServeHTTP({0xc0001dc2a0?}, {0xa0c7d8, 0xc0001de0e0}, 0xc0001f4000)
+	/usr/local/go/src/net/http/server.go:2916 +0x43b
+net/http.(*conn).serve(0xc0000a7680, {0xa0cac0, 0xc0001dc1b0})
+	/usr/local/go/src/net/http/server.go:1966 +0x5d7
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3071 +0x4db
+2022/04/29 11:48:44 in get DB: 
+2022/04/29 11:48:44 http: panic serving 127.0.0.1:41158: runtime error: invalid memory address or nil pointer dereference
+goroutine 6 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1825 +0xbf
+panic({0x859600, 0xc88120})
+	/usr/local/go/src/runtime/panic.go:844 +0x258
+go.mongodb.org/mongo-driver/mongo.(*Collection).Find(0x0, {0xa0ca50?, 0xc0000240f0?}, {0x854f40?, 0xc00000e2d0?}, {0x0, 0x0, 0x0})
+	/work/golang-induction/vendor/go.mongodb.org/mongo-driver/mongo/collection.go:1143 +0xb6
+main.getUnamesDB()
+	/work/golang-induction/crud-app.go:188 +0xae
+main.getUnames({0xa0c7d8, 0xc00015e0e0}, 0xc00015c450?)
+	/work/golang-induction/crud-app.go:43 +0xd4
+net/http.HandlerFunc.ServeHTTP(0xc000174100?, {0xa0c7d8?, 0xc00015e0e0?}, 0x0?)
+	/usr/local/go/src/net/http/server.go:2084 +0x2f
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc000154000, {0xa0c7d8, 0xc00015e0e0}, 0xc000174000)
+	/work/golang-induction/vendor/github.com/gorilla/mux/mux.go:210 +0x1cf
+net/http.serverHandler.ServeHTTP({0xc00015c2a0?}, {0xa0c7d8, 0xc00015e0e0}, 0xc000174000)
+	/usr/local/go/src/net/http/server.go:2916 +0x43b
+net/http.(*conn).serve(0xc0000a75e0, {0xa0cac0, 0xc00015c1b0})
+	/usr/local/go/src/net/http/server.go:1966 +0x5d7
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3071 +0x4db
+2022/04/29 11:48:53 http: panic serving 127.0.0.1:41162: runtime error: invalid memory address or nil pointer dereference
+goroutine 8 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1825 +0xbf
+panic({0x859600, 0xc88120})
+	/usr/local/go/src/runtime/panic.go:844 +0x258
+go.mongodb.org/mongo-driver/mongo.(*Collection).insert(0x0, {0xa0ca50?, 0xc0000240f0?}, {0xc0000ad758, 0x1, 0x7fbf30635c60?}, {0xc0000ad740, 0x1, 0x30?})
+	/work/golang-induction/vendor/go.mongodb.org/mongo-driver/mongo/collection.go:248 +0xe11
+go.mongodb.org/mongo-driver/mongo.(*Collection).InsertOne(0x880780?, {0xa0ca50?, 0xc0000240f0?}, {0x880780?, 0xc00015c7e0?}, {0x0?, 0x0?, 0x0?})
+	/work/golang-induction/vendor/go.mongodb.org/mongo-driver/mongo/collection.go:337 +0x171
+main.createUnameDB({{0xc00015a386, 0x5}, {0xc00015a370, 0xc}, {0xc00015a380, 0x6}})
+	/work/golang-induction/crud-app.go:178 +0xc5
+main.createUname({0xa0c7d8, 0xc00015e1c0}, 0xc000174500)
+	/work/golang-induction/crud-app.go:68 +0x1c5
+net/http.HandlerFunc.ServeHTTP(0xc000174400?, {0xa0c7d8?, 0xc00015e1c0?}, 0x0?)
+	/usr/local/go/src/net/http/server.go:2084 +0x2f
+github.com/gorilla/mux.(*Router).ServeHTTP(0xc000154000, {0xa0c7d8, 0xc00015e1c0}, 0xc000174300)
+	/work/golang-induction/vendor/github.com/gorilla/mux/mux.go:210 +0x1cf
+net/http.serverHandler.ServeHTTP({0xa0b830?}, {0xa0c7d8, 0xc00015e1c0}, 0xc000174300)
+	/usr/local/go/src/net/http/server.go:2916 +0x43b
+net/http.(*conn).serve(0xc0000a7720, {0xa0cac0, 0xc00015c1b0})
+	/usr/local/go/src/net/http/server.go:1966 +0x5d7
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3071 +0x4db
+2022/04/29 12:38:28 no error in pinging the connection to mongodb
+2022/04/29 12:38:47 in Create:
+2022/04/29 12:38:47 in createDB:
+2022/04/29 12:38:47 create> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successfully added record to db}
+2022/04/29 12:39:01 in getAll:
+2022/04/29 12:39:01 in get DB: 
+2022/04/29 14:26:16 no error in pinging the connection to mongodb
+2022/04/29 14:26:22 in getAll:
+2022/04/29 14:26:22 in get DB: 
+2022/04/29 14:26:29 in getAll:
+2022/04/29 14:26:29 in get DB: 
+2022/04/29 14:28:34 in Create:
+2022/04/29 14:28:34 in createDB:
+2022/04/29 14:28:34 error in inserting to mongo :  write exception: write errors: [E11000 duplicate key error collection: golang_project.username_mapper index: _id_ dup key: { _id: "11066" }]
+2022/04/29 14:28:34 error in object creation in mongo :  write exception: write errors: [E11000 duplicate key error collection: golang_project.username_mapper index: _id_ dup key: { _id: "11066" }]
+2022/04/29 14:28:34 create> type : struct { ResCode int; Message string } : {ResCode:1 Message:Error in db record creation!}
+2022/04/29 14:32:39 no error in pinging the connection to mongodb
+2022/04/29 14:32:45 no error in pinging the connection to mongodb
+2022/04/29 14:33:12 no error in pinging the connection to mongodb
+2022/04/29 14:33:18 no error in pinging the connection to mongodb
+2022/04/29 14:33:22 in getAll:
+2022/04/29 14:33:22 in get DB: 
+2022/04/29 14:33:30 in Create:
+2022/04/29 14:33:30 in createDB:
+2022/04/29 14:33:30 create> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successfully added record to db}
+2022/04/29 14:33:34 in getAll:
+2022/04/29 14:33:34 in get DB: 
+2022/04/29 14:41:00 no error in pinging the connection to mongodb
+2022/04/29 14:41:06 in getAll:
+2022/04/29 14:41:06 in get DB: 
+2022/04/29 14:41:06 result from db getall function :  [[map[Key:_id Value:11066] map[Key:name Value:Sumita Singh] map[Key:user_name Value:gamerS]] [map[Key:_id Value:40238] map[Key:name Value:Sumita Singh] map[Key:user_name Value:gamerS]]]
+2022/04/29 14:42:37 in getAll:
+2022/04/29 14:42:37 in get DB: 
+2022/04/29 14:42:37 result from db getall function :  [[map[Key:_id Value:11066] map[Key:name Value:Sumita Singh] map[Key:user_name Value:gamerS]] [map[Key:_id Value:40238] map[Key:name Value:Sumita Singh] map[Key:user_name Value:gamerS]]]
+2022/04/29 15:06:49 no error in pinging the connection to mongodb
+2022/04/29 15:09:00 in getAll:
+2022/04/29 15:09:00 in get DB: 
+2022/04/29 15:11:18 no error in pinging the connection to mongodb
+2022/04/29 15:11:22 in getAll:
+2022/04/29 15:11:22 in getbyID DB: 
+2022/04/29 15:14:45 no error in pinging the connection to mongodb
+2022/04/29 15:14:49 in getAll:
+2022/04/29 15:14:49 in getbyID DB: 
+2022/04/29 15:15:45 in getAll:
+2022/04/29 15:15:45 in getbyID DB: 
+2022/04/29 15:17:18 no error in pinging the connection to mongodb
+2022/04/29 15:17:22 in getAll:
+2022/04/29 15:17:22 in getAll DB: 
+2022/04/29 15:21:46 no error in pinging the connection to mongodb
+2022/04/29 15:21:48 in getAll:
+2022/04/29 15:21:48 in getAll DB: 
+2022/04/29 15:22:40 in getAll:
+2022/04/29 15:22:40 in getAll DB: 
+2022/04/29 15:23:24 in Create:
+2022/04/29 15:23:24 in createDB:
+2022/04/29 15:23:24 create> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successfully added record to db}
+2022/04/29 15:23:43 in getAll:
+2022/04/29 15:23:43 in getAll DB: 
+2022/04/29 15:25:14 in getByID:
+2022/04/29 15:25:14 in getByID DB: 
+2022/04/29 15:26:15 in getAll:
+2022/04/29 15:26:15 in getAll DB: 
+2022/04/29 15:53:28 no error in pinging the connection to mongodb
+2022/04/29 15:53:42 in getAll:
+2022/04/29 15:53:42 in getAll DB: 
+2022/04/29 15:53:48 in getAll:
+2022/04/29 15:53:48 in getAll DB: 
+2022/04/29 15:55:44 in delete:
+2022/04/29 15:55:44 in deleteDB :
+2022/04/29 15:55:44 On Deletions> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successful, deleted one record}
+2022/04/29 15:55:50 in getAll:
+2022/04/29 15:55:50 in getAll DB: 
