@@ -83,7 +83,7 @@ func createUname(writer http.ResponseWriter, request *http.Request) {
 	}{0, "Successull, added a new record"}
 	if err != nil {
 		returnMsg.ResCode = 1
-		returnMsg.Message = "Error in db record creation!"
+		returnMsg.Message = "Error in db record creation! Error is : " + err
 	} else {
 		returnMsg.ResCode = 0
 		returnMsg.Message = "Successfully added record to db"
@@ -120,7 +120,7 @@ func deleteUname(writer http.ResponseWriter, request *http.Request) {
 		returnMsg.Message = "Successful, deleted one record"
 	} else {
 		returnMsg.ResCode = 1
-		returnMsg.Message = "Unsuccessful!! could not find the ID provided"
+		returnMsg.Message = "Unsuccessful!! The Error is : " + err
 	}
 	log.Printf("On Deletions> type : %T : %+v\n", returnMsg, returnMsg)
 
@@ -158,7 +158,7 @@ func updateUname(writer http.ResponseWriter, request *http.Request) {
 		returnMsg.Message = "Successful, updated one record"
 	} else {
 
-		returnMsg.Message = "Unsuccessful!! could not find the provide ID in records!"
+		returnMsg.Message = "Unsuccessful!! Error is : " + err
 	}
 	log.Printf("update> type : %T : %+v\n", returnMsg, returnMsg)
 	encoder := json.NewEncoder(writer)
