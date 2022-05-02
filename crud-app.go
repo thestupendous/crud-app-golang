@@ -44,7 +44,9 @@ func getUnames(writer http.ResponseWriter, request *http.Request) {
 	writer.Header().Set("Content-Type", "application/json")
 	resultStructs := getUnamesDB()
 	//	log.Println("result from db getall function : ", resultStructs)
-	json.NewEncoder(writer).Encode(resultStructs)
+	encoder := json.NewEncoder(writer)
+	encoder.SetIndent("", "  ")
+	encoder.Encode(*resultStructs)
 
 }
 
@@ -56,7 +58,9 @@ func getUname(writer http.ResponseWriter, request *http.Request) {
 
 	resultUnameStruct := getUnameDB(requestedID)
 
-	json.NewEncoder(writer).Encode(resultUnameStruct)
+	encoder := json.NewEncoder(writer)
+	encoder.SetIndent("", "  ")
+	encoder.Encode(resultUnameStruct)
 
 }
 
@@ -86,7 +90,9 @@ func createUname(writer http.ResponseWriter, request *http.Request) {
 	}
 
 	log.Printf("create> type : %T : %+v\n", returnMsg, returnMsg)
-	json.NewEncoder(writer).Encode(returnMsg)
+	encoder := json.NewEncoder(writer)
+	encoder.SetIndent("", "  ")
+	encoder.Encode(returnMsg)
 }
 
 func deleteUname(writer http.ResponseWriter, request *http.Request) {
@@ -118,7 +124,9 @@ func deleteUname(writer http.ResponseWriter, request *http.Request) {
 	}
 	log.Printf("On Deletions> type : %T : %+v\n", returnMsg, returnMsg)
 
-	json.NewEncoder(writer).Encode(returnMsg)
+	encoder := json.NewEncoder(writer)
+	encoder.SetIndent("", "  ")
+	encoder.Encode(returnMsg)
 
 }
 
@@ -153,7 +161,9 @@ func updateUname(writer http.ResponseWriter, request *http.Request) {
 		returnMsg.Message = "Unsuccessful!! could not find the provide ID in records!"
 	}
 	log.Printf("update> type : %T : %+v\n", returnMsg, returnMsg)
-	json.NewEncoder(writer).Encode(returnMsg)
+	encoder := json.NewEncoder(writer)
+	encoder.SetIndent("", "  ")
+	encoder.Encode(returnMsg)
 
 }
 
@@ -189,23 +199,31 @@ func createUnameDB(username GamerUname) (string, error) {
 	return fmt.Sprintf("%v", result.InsertedID), err
 }
 
-func getUnamesDB() interface{} {
+func getUnamesDB() *[]GamerUname {
 	log.Println("in getAll DB: ")
 	var results []bson.D
+	var resultsStruct []GamerUname
 	cursor, err := coll.Find(ctx, bson.D{{}})
 	if err != nil {
 		log.Println("error in find() function: ", err)
-
 	}
 
-	//	var resultStruct GamerUname
+	var resultStruct GamerUname
 	for cursor.Next(ctx) {
 		var result bson.D
 		if err := cursor.Decode(&result); err != nil {
 			log.Println("error in cursor decoding : ", err)
 		}
 		//convert bson result field to struct
-		//		bytes, err := json.Marshal(result)
+		bytes, err := bson.Marshal(result)
+		if err != nil {
+			log.Println("err : struct : converting from bson to bytes :  ", err)
+		}
+		err = bson.Unmarshal(bytes, &resultStruct)
+		if err != nil {
+			log.Println("err: struct : converting bytes to struct : ", err)
+		}
+		resultsStruct = append(resultsStruct, resultStruct)
 		results = append(results, result)
 	}
 
@@ -217,15 +235,16 @@ func getUnamesDB() interface{} {
 	// log.Println("printing all bytes : ", bytes)
 
 	//converting string to list of structs
-	var resultStructs interface{}
-	err = json.Unmarshal(bytes, &resultStructs)
+	var resultsBson interface{}
+	err = json.Unmarshal(bytes, &resultsBson)
 	if err != nil {
 		fmt.Println("error in unmarshalling to struct slice : ", err)
 	}
 	// log.Println(resultStructs)
+	_ = resultsBson
 
 	//	resultJson, err = json.Marshal(results)
-	return resultStructs
+	return &resultsStruct
 
 }
 
@@ -287,7 +306,7 @@ func deleteUnameDB(requestedID string) (string, error) {
 func updateUnameDB(requestedID string, username GamerUname) (string, error) {
 	log.Println("in updateDB :")
 	filter := bson.D{{"_id", requestedID}}
-	update := username
+	update := bson.D{{"$set", bson.D{{"name", username.Name}, {"user_name", username.Username}}}}
 
 	updatedDoc, err := coll.UpdateOne(ctx, filter, update)
 	if err != nil {

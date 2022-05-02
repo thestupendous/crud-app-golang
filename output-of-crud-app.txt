@@ -210,3 +210,50 @@ created by net/http.(*Server).Serve
 2022/05/01 14:36:28 NO error in pinging the connection to mongodb
 2022/05/01 14:36:30 in getAll:
 2022/05/01 14:36:30 in getAll DB: 
+2022/05/02 11:21:01 NO error in pinging the connection to mongodb
+2022/05/02 11:27:41 in getAll:
+2022/05/02 11:27:41 in getAll DB: 
+2022/05/02 11:27:53 in getAll:
+2022/05/02 11:27:53 in getAll DB: 
+2022/05/02 11:47:13 NO error in pinging the connection to mongodb
+2022/05/02 11:47:19 in getAll:
+2022/05/02 11:47:19 in getAll DB: 
+2022/05/02 11:47:34 in getByID:
+2022/05/02 11:47:34 in getByID DB: 
+2022/05/02 11:48:51 in getAll:
+2022/05/02 11:48:51 in getAll DB: 
+2022/05/02 11:49:06 in getByID:
+2022/05/02 11:49:06 in getByID DB: 
+2022/05/02 11:51:34 in getByID:
+2022/05/02 11:51:34 in getByID DB: 
+2022/05/02 12:07:27 NO error in pinging the connection to mongodb
+2022/05/02 12:07:30 in getByID:
+2022/05/02 12:07:30 in getByID DB: 
+2022/05/02 12:07:51 in getByID:
+2022/05/02 12:07:51 in getByID DB: 
+2022/05/02 12:09:57 NO error in pinging the connection to mongodb
+2022/05/02 12:10:00 in getByID:
+2022/05/02 12:10:00 in getByID DB: 
+2022/05/02 12:10:47 in getAll:
+2022/05/02 12:10:47 in getAll DB: 
+2022/05/02 12:11:16 in Create:
+2022/05/02 12:11:16 in createDB:
+2022/05/02 12:11:16 create> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successfully added record to db}
+2022/05/02 12:11:22 in getAll:
+2022/05/02 12:11:22 in getAll DB: 
+2022/05/02 12:12:52 in delete:
+2022/05/02 12:12:52 in deleteDB :
+2022/05/02 12:12:52 On Deletions> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successful, deleted one record}
+2022/05/02 12:12:55 in getAll:
+2022/05/02 12:12:55 in getAll DB: 
+2022/05/02 12:22:25 in update:
+2022/05/02 12:22:25 in updateDB :
+2022/05/02 12:22:25 error in update call to mongodb :  update document must contain key beginning with '$'
+2022/05/02 12:22:25 error in update method from mongo :  update document must contain key beginning with '$'
+2022/05/02 12:22:25 update> type : struct { ResCode int; Message string } : {ResCode:0 Message:Unsuccessful!! could not find the provide ID in records!}
+2022/05/02 12:36:08 NO error in pinging the connection to mongodb
+2022/05/02 12:36:14 in update:
+2022/05/02 12:36:14 in updateDB :
+2022/05/02 12:36:14 update> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successful, updated one record}
+2022/05/02 12:36:18 in getAll:
+2022/05/02 12:36:18 in getAll DB: 
