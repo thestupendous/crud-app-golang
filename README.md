@@ -7,6 +7,13 @@ The program listens on **8080** port on localhost.
 
 
 ## Setting up Env and Running the App
+
+### In mongodb 
+Make sure mongodb is running on default port (i.e. 27017), then create in it:
+  - a database named `golang_project`
+  - a collection named `user_mapper`
+
+### In system
 Things that need to be set up before the program can run, and how to \
 actually run the program.
 - install golang, mongodb (on localhost)

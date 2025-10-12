@@ -257,3 +257,16 @@ created by net/http.(*Server).Serve
 2022/05/02 12:36:14 update> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successful, updated one record}
 2022/05/02 12:36:18 in getAll:
 2022/05/02 12:36:18 in getAll DB: 
+2025/10/12 20:28:28 NO error in pinging the connection to mongodb
+2025/10/12 20:29:38 in getAll:
+2025/10/12 20:29:38 in getAll DB: 
+2025/10/12 20:34:59 in getAll:
+2025/10/12 20:34:59 in getAll DB: 
+2025/10/12 20:36:27 in Create:
+2025/10/12 20:36:27 in createDB:
+2025/10/12 20:36:27 create> type : struct { ResCode int; Message string } : {ResCode:0 Message:Successfully added record to db}
+2025/10/12 20:36:32 in getAll:
+2025/10/12 20:36:32 in getAll DB: 
+2025/10/12 20:43:01 NO error in pinging the connection to mongodb
+2025/10/12 20:43:05 in getAll:
+2025/10/12 20:43:05 in getAll DB: 

@@ -73,7 +73,7 @@ func createUname(writer http.ResponseWriter, request *http.Request) {
 	username.ID = strconv.Itoa(rand.Intn(99999)) //TODO check for duplicates
 	out, err := createUnameDB(username)
 	if err != nil {
-		log.Println("error in object creation in mongo : ", err)
+		log.Println("error in object creation in mongo : ", err.Error())
 	}
 	_ = out //for now ignoring mongodb output value
 	//	usernames = append(usernames, username)
@@ -83,7 +83,7 @@ func createUname(writer http.ResponseWriter, request *http.Request) {
 	}{0, "Successull, added a new record"}
 	if err != nil {
 		returnMsg.ResCode = 1
-		returnMsg.Message = "Error in db record creation! Error is : " + err
+		returnMsg.Message = "Error in db record creation! Error is : " + err.Error()
 	} else {
 		returnMsg.ResCode = 0
 		returnMsg.Message = "Successfully added record to db"
@@ -120,7 +120,7 @@ func deleteUname(writer http.ResponseWriter, request *http.Request) {
 		returnMsg.Message = "Successful, deleted one record"
 	} else {
 		returnMsg.ResCode = 1
-		returnMsg.Message = "Unsuccessful!! The Error is : " + err
+		returnMsg.Message = "Unsuccessful!! The Error is : " + err.Error()
 	}
 	log.Printf("On Deletions> type : %T : %+v\n", returnMsg, returnMsg)
 
@@ -140,12 +140,12 @@ func updateUname(writer http.ResponseWriter, request *http.Request) {
 	requestedID := params["id"]
 	err := json.NewDecoder(request.Body).Decode(&username)
 	if err != nil {
-		log.Println("error in reading request body : ", err)
+		log.Println("error in reading request body : ", err.Error())
 	}
 
 	res, err := updateUnameDB(requestedID, username)
 	if err != nil {
-		log.Println("error in update method from mongo : ", err)
+		log.Println("error in update method from mongo : ", err.Error())
 	}
 	_ = res
 
@@ -158,7 +158,7 @@ func updateUname(writer http.ResponseWriter, request *http.Request) {
 		returnMsg.Message = "Successful, updated one record"
 	} else {
 
-		returnMsg.Message = "Unsuccessful!! Error is : " + err
+		returnMsg.Message = "Unsuccessful!! Error is : " + err.Error()
 	}
 	log.Printf("update> type : %T : %+v\n", returnMsg, returnMsg)
 	encoder := json.NewEncoder(writer)
@@ -193,7 +193,7 @@ func createUnameDB(username GamerUname) (string, error) {
 	log.Println("in createDB:")
 	result, err := coll.InsertOne(ctx, username)
 	if err != nil {
-		log.Println("error in inserting to mongo : ", err)
+		log.Println("error in inserting to mongo : ", err.Error())
 		return "0", err
 	}
 	return fmt.Sprintf("%v", result.InsertedID), err
